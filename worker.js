@@ -43,7 +43,7 @@ function nginx() {
       if (url.pathname == '/') {
         return new Response(nginx(), {headers: {'content-type': 'text/html'}})
       }
-      const matched = url.pathname.match(/^\/___FIX_HEADER\/(.*.huggingface.co\/.*)/)
+      const matched = url.pathname.match(/^\/___FIX_HEADER\/(.*.hf.co\/.*)/)
       if (matched) {
         const ret = new Request('https://' + matched[1] + url.search, {headers: request.headers, method: 'GET'})
         return fetch(ret)
